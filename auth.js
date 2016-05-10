@@ -1,3 +1,5 @@
+var config = require('./config.json');
+
 // TODO: make setupAuth depend on the Config service...
 function setupAuth(User, app) {
   var passport = require('passport');
@@ -18,8 +20,8 @@ function setupAuth(User, app) {
   passport.use(new FacebookStrategy(
     {
       // TODO: and use the Config service here
-      clientID: process.env.FACEBOOK_CLIENT_ID,
-      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+      clientID: config.facebookClientId,
+      clientSecret: config.facebookClientSecret,
       callbackURL: 'http://localhost:3000/auth/facebook/callback',
       // Necessary for new version of Facebook graph API
       profileFields: ['id', 'emails', 'name']
