@@ -22,7 +22,7 @@ function setupAuth(User, app) {
       // TODO: and use the Config service here
       clientID: config.facebookClientId,
       clientSecret: config.facebookClientSecret,
-      callbackURL: 'http://localhost:3000/auth/facebook/callback',
+      callbackURL: config.facebookCallbackURL,
       // Necessary for new version of Facebook graph API
       profileFields: ['id', 'emails', 'name']
     },
